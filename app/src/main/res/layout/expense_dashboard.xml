@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="10dp"
+    android:elevation="5dp"
+    android:layout_margin="10dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dash_type_income"
+            android:gravity="center"
+            android:textColor="@color/navbar"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:id="@+id/type_expense_dash"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dash_amount_income"
+            android:textColor="@color/expense_color"
+            android:padding="5dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:gravity="center"
+            android:id="@+id/amount_expense_dash"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/income_recycler_date"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:gravity="center"
+            android:textColor="@color/income_color"
+            android:id="@+id/date_expense_dash"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

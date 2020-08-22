@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "74518466164",
+    "firebase_url": "https://expense-manager-cfad0.firebaseio.com",
+    "project_id": "expense-manager-cfad0",
+    "storage_bucket": "expense-manager-cfad0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74518466164:android:ca5bd298c3f36fc6370b21",
+        "android_client_info": {
+          "package_name": "com.example.moneymanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74518466164-740h8m26ks68dh1vbek4hvoq4efieugk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moneymanager",
+            "certificate_hash": "c7b498555f279bbcfa11554058bf75de332b0a16"
+          }
+        },
+        {
+          "client_id": "74518466164-vp8g4ib31653ragccral94r3vqe0qkt3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxs2ksWVkxEUNSWaPhiu7GtN9UWKKx4Kk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74518466164-vp8g4ib31653ragccral94r3vqe0qkt3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

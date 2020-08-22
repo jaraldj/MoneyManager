@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Expense Manager</string>
+
+    <string name="registration">Rgisteration</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_account">Already have account?Sign in here</string>
+
+    <string name="appbar_scrolling_view_behaviour">appbar_scrolling_view_behaviour</string>
+
+
+    <string name="expense_manager">Expense Manager</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="dashboard_fragment">DashBoard Fragment</string>
+    <string name="income_fragment">Income Fragment</string>
+    <string name="expense_fragment">Expense Fragment</string>
+
+    <string name="income_dashboard">Income</string>
+    <string name="expense_dashboard">Expense</string>
+
+
+    <string name="income_value">000.00</string>
+    <string name="expense_value">000.00</string>
+    
+    <string name="custom_layout_amt">AMOUNT:</string>
+    <string name="custom_layout_type">TYPE:</string>
+    <string name="custom_layout_note">NOTE:</string>
+    <string name="custom_layout_btn">CANCEL</string>
+    <string name="custom_layout_save">SAVE</string>
+
+    <string name="income_recycler_date">30 May 2020</string>
+    <string name="income_recycler_type">Type</string>
+    <string name="income_recycler_note">Note</string>
+    <string name="income_recycler_amount">60000</string>
+
+    <string name="update_layout_update_btn">UPDATE</string>
+    <string name="update_layout_delete_btn">DELETE</string>
+
+    <string name="dash_amount_income">Amount:</string>
+    <string name="dash_type_income">Type:</string>
+
+
+</resources>
