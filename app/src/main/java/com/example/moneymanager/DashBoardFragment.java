@@ -392,7 +392,7 @@ public class DashBoardFragment extends Fragment {
             @Override
             public IncomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.income_recycler_data, parent, false);
+                        .inflate(R.layout.dashboard_income, parent, false);
                 return new IncomeViewHolder(view);
             }
         };
@@ -427,7 +427,7 @@ public class DashBoardFragment extends Fragment {
             @Override
             public ExpenseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.expense_recycler_data, parent, false);
+                        .inflate(R.layout.expense_dashboard, parent, false);
 
                 return new ExpenseViewHolder(view);
             }
@@ -455,18 +455,18 @@ public class DashBoardFragment extends Fragment {
         }
 
         public void setIncomeType(String type) {
-            TextView mtype = mIncomeView.findViewById(R.id.type_txt_income);
+            TextView mtype = mIncomeView.findViewById(R.id.type_income_dash);
             mtype.setText(type);
         }
 
         public void setIncomeAmount(Long amount) {
-            TextView mamount = mIncomeView.findViewById(R.id.amount_txt_income);
+            TextView mamount = mIncomeView.findViewById(R.id.amount_income_dash);
             String strAmount = String.valueOf(amount);
             mamount.setText(strAmount);
         }
 
         public void setIncomeDate(String date) {
-            TextView mDate = mIncomeView.findViewById(R.id.date_txt_income);
+            TextView mDate = mIncomeView.findViewById(R.id.date_income_dash);
             mDate.setText(date);
         }
 
@@ -481,18 +481,18 @@ public class DashBoardFragment extends Fragment {
         }
 
         public void setExpenseType(String type) {
-            TextView mtype = mExpenseView.findViewById(R.id.type_txt_expense);
+            TextView mtype = mExpenseView.findViewById(R.id.type_expense_dash);
             mtype.setText(type);
         }
 
         public void setExpenseAmount(Long amount) {
-            TextView mamount = mExpenseView.findViewById(R.id.amount_txt_expense);
+            TextView mamount = mExpenseView.findViewById(R.id.amount_expense_dash);
             String strAmount = String.valueOf(amount);
             mamount.setText(strAmount);
         }
 
         public void setExpenseDate(String date) {
-            TextView mDate = mExpenseView.findViewById(R.id.date_txt_expense);
+            TextView mDate = mExpenseView.findViewById(R.id.date_expense_dash);
             mDate.setText(date);
         }
     }

@@ -66,6 +66,7 @@ public class IncomeFragment extends Fragment {
 
     private String post_key;
     private String uid;
+    private FirebaseRecyclerAdapter<Data, MyViewHolder> adapter;
 
 
     @Override
@@ -81,6 +82,8 @@ public class IncomeFragment extends Fragment {
 
         mIncomeDatabase = FirebaseDatabase.getInstance().getReference().child("IncomeData").child(uid);
 
+        mIncomeDatabase.keepSynced(true);
+
         incomeTotalSum = myview.findViewById(R.id.income_text_result);
 
         recyclerView = myview.findViewById(R.id.recycler_income);
@@ -91,6 +94,35 @@ public class IncomeFragment extends Fragment {
         layoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
+
+        FirebaseRecyclerOptions<Data> options =
+                new FirebaseRecyclerOptions.Builder<Data>()
+                        .setQuery(mIncomeDatabase,Data.class)
+                        .build();
+
+        adapter = new FirebaseRecyclerAdapter<Data, MyViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Data model) {
+
+                holder.setType(model.getType());
+                holder.setNote(model.getNote());
+                holder.setDate(model.getDate());
+                holder.setAmount(model.getAmount());
+
+
+            }
+
+            @NonNull
+            @Override
+            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.income_recycler_data, parent, false);
+
+                return new MyViewHolder(view);
+            }
+        };
+
+        recyclerView.setAdapter(adapter);
 
         mIncomeDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -123,51 +155,14 @@ public class IncomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
-        Query query = mIncomeDatabase
-                .child(uid);
-
-        FirebaseRecyclerOptions<Data> options =
-                new FirebaseRecyclerOptions.Builder<Data>()
-                        .setQuery(query, new SnapshotParser<Data>() {
-                            @NonNull
-                            @Override
-                            public Data parseSnapshot(@NonNull DataSnapshot snapshot) {
-                                Log.e("helloo",snapshot.getChildren().toString());
-                                return new Data((Long) snapshot.child("amount").getValue(),
-                                        snapshot.child("type").getValue().toString(),
-                                        snapshot.child("note").getValue().toString(),
-                                        snapshot.child("id").getValue().toString(),
-                                        snapshot.child("date").getValue().toString());
-                            }
-                        })
-                        .build();
-
-        FirebaseRecyclerAdapter<Data, MyViewHolder> adapter = new FirebaseRecyclerAdapter<Data, MyViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Data model) {
-
-                holder.setType(model.getType());
-                holder.setNote(model.getNote());
-                holder.setDate(model.getDate());
-                holder.setAmount(model.getAmount());
-
-
-            }
-
-            @NonNull
-            @Override
-            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.income_recycler_data, parent, false);
-
-                return new MyViewHolder(view);
-            }
-        };
-
-        recyclerView.setAdapter(adapter);
+        adapter.startListening();
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 

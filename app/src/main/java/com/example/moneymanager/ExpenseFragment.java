@@ -74,6 +74,7 @@ public class ExpenseFragment extends Fragment {
 
         mExpenseDatabase = FirebaseDatabase.getInstance().getReference().child("ExpenseData").child(uid);
 
+        mExpenseDatabase.keepSynced(true);
         expenseSumResult = myview.findViewById(R.id.expense_text_result);
 
         recyclerView = myview.findViewById(R.id.recycler_expense);
@@ -84,17 +85,7 @@ public class ExpenseFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManagerExpense);
 
         FirebaseRecyclerOptions<Data> expenseOptions = new FirebaseRecyclerOptions.Builder<Data>()
-                .setQuery(mExpenseDatabase, new SnapshotParser<Data>() {
-                    @NonNull
-                    @Override
-                    public Data parseSnapshot(@NonNull DataSnapshot snapshot) {
-                        return new Data((Long) snapshot.child("amount").getValue(),
-                                snapshot.child("type").getValue().toString(),
-                                snapshot.child("note").getValue().toString(),
-                                snapshot.child("id").getValue().toString(),
-                                snapshot.child("date").getValue().toString());
-                    }
-                })
+                .setQuery(mExpenseDatabase,Data.class)
                 .build();
 
         expenseAdapter = new FirebaseRecyclerAdapter<Data, MyViewHolder>(expenseOptions) {
